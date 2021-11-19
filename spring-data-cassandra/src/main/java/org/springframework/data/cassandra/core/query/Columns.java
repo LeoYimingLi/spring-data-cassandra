@@ -70,7 +70,7 @@ public class Columns implements Iterable<ColumnName> {
 
 		Assert.notNull(columnNames, "Column names must not be null");
 
-		Map<ColumnName, Selector> columns = new HashMap<>(columnNames.length, 1);
+		Map<ColumnName, Selector> columns = new LinkedHashMap<>(columnNames.length, 1);
 
 		Arrays.stream(columnNames)
 				.forEach(columnName -> columns.put(ColumnName.from(columnName), ColumnSelector.from(columnName)));
