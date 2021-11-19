@@ -114,6 +114,7 @@ class CriteriaUnitTests {
 	void shouldCreateIsInSet() {
 
 		CriteriaDefinition criteria = Criteria.where("foo").in(new HashSet<>(Arrays.asList("a", "b")));
+		
 		String actual = serializeToCqlSafely(criteria);
 		assertThat(actual.equals("foo IN {'a','b'}") || actual.equals("foo IN {'b','a'}") ).isTrue();
 	}
